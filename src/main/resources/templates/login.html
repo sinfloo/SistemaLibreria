@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Login</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -28,32 +28,32 @@
 <!--===============================================================================================-->
 </head>
 <body>
-<div class="container-login100" style="background-image: url('images/bg-01.jpg');">
+<div class="container-login100" style="background-image: url('login/images/bg-01.jpg');">
 		<div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
 			<form class="login100-form validate-form">
 				<span class="login100-form-title p-b-37">
-					Sign In
+					 Iniciar Sesión
 				</span>
 
 				<div class="wrap-input100 validate-input m-b-20" data-validate="Enter username or email">
-					<input class="input100" type="text" name="username" placeholder="username or email">
+					<input class="input100" type="text" id="user_login" placeholder="Ingrese su nombre de usuario">
 					<span class="focus-input100"></span>
 				</div>
 
 				<div class="wrap-input100 validate-input m-b-25" data-validate = "Enter password">
-					<input class="input100" type="password" name="pass" placeholder="password">
+					<input class="input100" type="password" id="password_login" placeholder="Ingrese su clave">
 					<span class="focus-input100"></span>
 				</div>
 
 				<div class="container-login100-form-btn">
-					<button class="login100-form-btn">
-						Sign In
+					<button class="login100-form-btn" id="idboton_login">
+						 Iniciar Sesión
 					</button>
 				</div>
 
 				<div class="text-center p-t-57 p-b-20">
 					<span class="txt1">
-						Or login with
+						O Inicia sesión con
 					</span>
 				</div>
 
@@ -69,7 +69,7 @@
 
 				<div class="text-center">
 					<a href="#" class="txt2 hov1">
-						Sign Up
+						Recargar 
 					</a>
 				</div>
 			</form>
@@ -98,6 +98,49 @@
 	<script src="login/vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
 	<script src="login/js/main.js"></script>
+<script>
+	$(document).ready(function (){
+		
+	
+	$("#idboton_login").click(function() {
+		var user = $("#user_login").val();
+		var clave = $("#password_login").val();
+		if(user ===''){
+		console.log("complete el usuario");
+		}else if(clave ===''){
+			console.log("complete la clave");
+		}
+		else {
+			console.log(user + "" + clave);
+			$.ajax("login",{
+				data:{
+					'op' : 1,
+					'user' : user,
+					'pass': clave
+				},
+				method:'POST',
+				success:function(obj){
+					console.log(obj);
+// 	 	 				alert(obj);
+					var log = JSON.parse(obj)
+					var usuarioo=log.nom_usuariooo;
+				
+				
+					if (log.op == 1) {
+						window.location.href = "principio";
+					} else {
+						alert("No Salio amigo");
+					}
+				}
+			});
+			
+		}	 		
 
+	});
+	
+	
+	});
+
+	</script>
 </body>
 </html>
