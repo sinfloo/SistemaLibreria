@@ -162,7 +162,7 @@ iframe {
   background-size: cover;
   background-position: center;
   position: relative;
-  z-index: 1;
+  z-index: 1; 
 }
 
 .container-login100::before {
@@ -178,7 +178,7 @@ iframe {
   background: -webkit-linear-gradient(left, rgba(0,168,255,0.5), rgba(185,0,255,0.5));
   background: -o-linear-gradient(left, rgba(0,168,255,0.5), rgba(185,0,255,0.5));
   background: -moz-linear-gradient(left, rgba(0,168,255,0.5), rgba(185,0,255,0.5));
-  background: linear-gradient(left, rgba(0,168,255,0.5), rgba(185,0,255,0.5));
+  background: linear-gradient(left, rgba(0,168,255,0.5), rgba(185,0,255,0.5)); 
   pointer-events: none;
 }
 

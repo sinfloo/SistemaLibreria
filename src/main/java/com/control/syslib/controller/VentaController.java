@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class VentaController {
 	@GetMapping("/lista_venta")
 	public String lista(Model model) {		
-		return "articulo";
+		return "venta";
 	}
 }

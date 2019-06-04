@@ -1,411 +1,255 @@
-<!doctype html>
-<html xmlns:th="https://www.thymeleaf.org">
-
-<head>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
+    <!-- Twitter meta-->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:site" content="@pratikborsadiya">
+    <meta property="twitter:creator" content="@pratikborsadiya">
+    <!-- Open Graph Meta-->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Syslib admin">
+    <meta property="og:title" content="Syslib - Free Bootstrap 4 admin theme">
+    <meta property="og:url" content="http://pratikborsadiya.in/blog/vali-admin">
+    <meta property="og:image" content="http://pratikborsadiya.in/blog/vali-admin/hero-social.png">
+    <meta property="og:description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
+    <title>Syslib</title>
     <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>INMASER TUQUI</title>
-    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-   <!-- favicon
-		============================================ -->
-<link rel="shortcut icon" type="image/x-icon" th:href="@{/main/img/logo_sicohe.ico}">
-<!-- Google Fonts
-		============================================ -->
-<link
-	href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900"
-	rel="stylesheet">
-<!-- Bootstrap CSS
-		============================================ -->
-<link rel="stylesheet"  th:href="@{/main/css/bootstrap.min.css}" >
-<!-- Bootstrap CSS
-		============================================ -->
-<link rel="stylesheet"  th:href="@{/main/css/font-awesome.min.css}"  >
-<!-- nalika Icon CSS
-		============================================ -->
-<link rel="stylesheet" th:href="@{/main/css/nalika-icon.css}" >
-<!-- owl.carousel CSS
-		============================================ -->
-<link rel="stylesheet" th:href="@{/main/css/owl.carousel.css}"  >
-<link rel="stylesheet" th:href="@{/main/css/owl.theme.css}"  >
-<link rel="stylesheet" th:href="@{/main/css/owl.transitions.css}" >
-<!-- animate CSS
-		============================================ -->
-<link rel="stylesheet" th:href="@{/main/css/animate.css}"   >
-<!-- normalize CSS
-		============================================ -->
-<link rel="stylesheet" th:href="@{/main/css/normalize.css}" >
-<!-- meanmenu icon CSS
-		============================================ -->
-<link rel="stylesheet" th:href="@{/main/css/meanmenu.min.css}" >
-<!-- main CSS
-		============================================ -->
-<link rel="stylesheet" th:href="@{/main/css/main.css}" >
-<!-- morrisjs CSS
-		============================================ -->
-<link rel="stylesheet" th:href="@{/main/css/morrisjs/morris.css}" >
-<!-- mCustomScrollbar CSS
-		============================================ -->
-<link rel="stylesheet"
-	th:href="@{/main/css/scrollbar/jquery.mCustomScrollbar.min.css}"  >
-<!-- metisMenu CSS
-		============================================ -->
-<link rel="stylesheet" th:href="@{/main/css/metisMenu/metisMenu.min.css}"  >
-<link rel="stylesheet" th:href="@{/main/css/metisMenu/metisMenu-vertical.css}"  >
-<!-- calendar CSS
-		============================================ -->
-<link rel="stylesheet" th:href="@{/main/css/calendar/fullcalendar.min.css}"  >
-<link rel="stylesheet"
-	th:href="@{/main/css/calendar/fullcalendar.print.min.css}">
-<!-- style CSS
-		============================================ -->
-<link rel="stylesheet" th:href="@{/main/style.css}"  >
-<!-- responsive CSS
-		============================================ -->
-<link rel="stylesheet" th:href="@{/main/css/responsive.css}"  >
+    <!-- Main CSS-->
+    <link rel="stylesheet" type="text/css" href="main/css/main.css">
+    <!-- Font-icon css-->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/2ea346856f.js"></script>
+  </head>
+  
+  <body class="app sidebar-mini rtl">
+    <!-- Navbar-->
+    <header class="app-header"><a class="app-header__logo" href="index.html">SYSLIB</a>
+      <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
+      <!-- Navbar Right Menu-->
+      <ul class="app-nav">
+        <li class="app-search">
+          <input class="app-search__input" type="search" placeholder="Search">
+          <button class="app-search__button"><i class="fa fa-search"></i></button>
+        </li>
+        <!--Notification Menu-->
 
-<!-- responsive CSS
-		============================================ -->
-<link rel="stylesheet"
-	href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
-	integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
-	crossorigin="anonymous">
-<!-- modernizr JS
-		============================================ -->
-<script th:src="@{/main/js/vendor/modernizr-2.8.3.min.js}" ></script>
-</head>
+        <!-- User Menu-->
+        <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-user fa-lg"></i></a>
+          <ul class="dropdown-menu settings-menu dropdown-menu-right">
+            <li><a class="dropdown-item" href="#"><i class="fa fa-cog fa-lg"></i> Configuración de la cuenta</a></li>
+            <li><a class="dropdown-item" href="#"><i class="fa fa-user fa-lg"></i> Perfil</a></li>
+            <li><a class="dropdown-item" href="logout"><i class="fa fa-sign-out fa-lg"></i> Cerrar Sesión</a></li>
+          </ul>
+        </li>
+      </ul>
+    </header>
+    <!-- Sidebar menu-->
+    <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+    <aside class="app-sidebar">
+      <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg" alt="User Image">
+        <div>
+          <p class="app-sidebar__user-name">Activo</p>
+          <p class="app-sidebar__user-designation">Usuario admin</p>
+        </div>
+      </div>
+      <ul class="app-menu">
+        <li><a class="app-menu__item active" href="principio"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">INICIO</span></a></li>
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">TIENDA</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+          <ul class="treeview-menu">
+            <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i>Artículos</a></li>
+            <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i> Departamentos</a></li>
+          </ul>
+        </li>
+     
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-edit"></i><span class="app-menu__label">VENTAS</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+          <ul class="treeview-menu">
+            <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i>Ventas</a></li>
+          </ul>
+        </li>
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">COMPRAS</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+          <ul class="treeview-menu">
+            <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i>Compras</a></li>
+            <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i>Stock</a></li>
+          </ul>
+        </li>
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-file-text"></i><span class="app-menu__label">CAJA</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+          <ul class="treeview-menu">
+            <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i>Cierre Caja</a></li>
+          </ul>
+        </li>
+         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">REPORTES</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+          <ul class="treeview-menu">
+            <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i>Reporte Ventas</a></li>
+            <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i>Reporte Compras</a></li>
+          </ul>
+        </li>
+         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">CONFIGURACIÓN</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+          <ul class="treeview-menu">
+            <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i>Usuario</a></li>
+            <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i>Roles</a></li>
+          </ul>
+        </li>
+      </ul>
+    </aside>
+    
+<!--     	INICIO DEL CONTENIDO PRINCIPAL - Cabecera -->
+    <div class="app-content">
+      <div class="app-title">
+        <div>
+          <h1><i class="fa fa-dashboard"></i> INICIO</h1>
+          <p>Brindando un servicio de calidad hasta la pronta venida de Jesucristo</p>
+        </div>
+        <ul class="app-breadcrumb breadcrumb">
+          <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+          <li class="breadcrumb-item"><a href="principio">Inicio</a></li>
+        </ul>
+      </div>
+<!--       fin de la cabecera  -->
 
-<body>
-   <div class="left-sidebar-pro">
-		<nav id="sidebar">
-			<div class="sidebar-header">
-				<a href="#">
-				<img class="main-logo"
-					th:src="@{/main/img/logo/tuqui.jpg}" alt="" /></a> 
-<!-- 					<strong><img -->
-<!-- 					th:src="@{/main/img/logo/tuqui1.jpg}" alt="" /></strong> -->
-			</div>
-			<div class="nalika-profile">
-				<div class="profile-dtl">
-					<a href="#"><img th:src="@{/main/img/notification/4.jpg}" alt="hola" /></a>
-					<h2>
-						<span class="min-dtn"></span>
-					</h2>
-				</div>
-				<div class="profile-social-dtl">
-					<ul class="dtl-social">
-						<li><a href="#"><i class="icon nalika-facebook"></i></a></li>
-						<li><a href="#"><i class="icon nalika-twitter"></i></a></li>
-						<li><a href="#"><i class="icon nalika-linkedin"></i></a></li>
-					</ul>
-				</div>
-			</div>
-			<div class="left-custom-menu-adp-wrap comment-scrollbar">
-				<nav class="sidebar-nav left-sidebar-menu-pro">
-					<ul class="metismenu" id="menu1">
-
-						<li ><a class="has-arrow" href="#">
-								<i class="icon nalika-home icon-wrap"></i> <span
-								class="mini-click-non">PARTE VENTAS</span>
-						</a>
-							<ul class="submenu-angle" aria-expanded="false">
-							
-								<li><a title="Articulos" th:href="@{/lista_articulo}">
-								<i class="fas fa-wrench icon-wrap"></i>
-								<span class="mini-sub-pro">Articulos</span></a></li>
-								
-								<li><a title="Epps" href="#">
-								<i class="fas fa-mitten icon-wrap"></i>
-								<span class="mini-sub-pro">Departamentos</span></a></li>
-										
-											<li><a title="Ventas" th:href="@{/lista_venta}">
-											<i class="fas fa-user-tie icon-wrap"></i>
-											<span class="mini-sub-pro">Ventas</span></a></li>
-							</ul></li>
-							
-<!-- 							aqui finaliza la parte de ventas -->
-							
-						<li><a class="has-arrow" href="#"
-							aria-expanded="false"><i
-								class="fas fa-cog icon-wrap"></i> <span
-								class="mini-click-non">CONFIGURACION</span></a>
-							<ul class="submenu-angle" aria-expanded="false">
-								<li><a title="Usuarios" th:href="@{/lista_usuario}">
-								<i class="fas fa-users-cog icon-wrap"></i>
-								<span class="mini-sub-pro">Usuarios</span></a></li>
-								
-								<li><a title="Roles" th:href="@{/lista_rol}">
-								<i class="fab fa-gg-circle icon-wrap"></i>
-								<span class="mini-sub-pro">Roles</span></a></li>
-							
-							</ul></li>
-							
-							
-							
-						
-							
-							
-							
-						<li><a  href="#" 
-							aria-expanded="false">
-								<span class="mini-click-non"></span></a>
-							<ul class="submenu-angle" aria-expanded="false" >
-								<li><a title="Peity Charts" href="#"><span
-										class="mini-sub-pro"></span></a></li>
-								<li><a title="Data Table" href="#"><span
-										class="mini-sub-pro"></span></a></li>
-							</ul></li>
-						<li>
-						<li id="removable"><a  href="#"
-							aria-expanded="false"> <span
-								class="mini-click-non"></span></a>
-							<ul class="submenu-angle" aria-expanded="false">
-								<li><a title="Login" href="#"><span
-										class="mini-sub-pro"></span></a></li>
-								<li><a title="Register" href="#"><span
-										class="mini-sub-pro"></span></a></li>
-								<li><a title="Lock" href="#"><span
-										class="mini-sub-pro"></span></a></li>
-								<li><a title="Password Recovery"
-									href="#"><span class="mini-sub-pro"></span></a></li>
-							</ul></li>
-					</ul>
-				</nav>
-			</div>
-		</nav>
-	</div>
-	
-<!-- 	fin del sidebar izquierdooooooo -->
-	
-	<!-- Start Welcome area -->
-	
-	<div class="all-content-wrapper">
-<!-- 	inicio de la imagen de arriba  -->
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-					<div class="logo-pro">
-						<a href="/"><img class="main-logo"
-							th:src="@{/main/img/logo/logo.png}" alt="logo tools" style="width: 3.5%;" /></a>
-					</div>
-				</div>
-			</div>
-		</div>
-<!-- 		fin de la imagen arriba del breadcome list  -->
-		
-		<div class="header-advance-area">
-<!-- 				inicio de la cabecera superior -->
-			<div class="header-top-area">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
-							<div class="header-top-wraper">
-								<div class="row">
-								
-<!-- 									boton menu desplegar sidebar  -->
-									<div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
-										<div class="menu-switcher-pro">
-											<button type="button" id="sidebarCollapse"
-												class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn">
-												<i class="icon nalika-menu-task"></i>
-											</button>
-										</div>
-									</div>
-<!-- 										fin del boton menu desplegar sidebar -->
-									
-								
-<!-- 									fin del input buscar cabecera  -->
-
-<!-- 								inicio del menu superior derecho y profile y messages and notifications  -->
-									<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12" style="margin-left: 500px;">
-										<div class="header-right-info">
-											<ul class="nav navbar-nav mai-top-nav header-right-menu">
-
-												
-												<li class="nav-item"><a href="#" data-toggle="dropdown"
-													role="button" aria-expanded="false"
-													class="nav-link dropdown-toggle"> <i
-														class="icon nalika-user"></i> <span class="admin-name">Salir Ahora</span>
-														<i class="icon nalika-down-arrow nalika-angle-dw"></i>
-												</a>
-													<ul role="menu"
-														class="dropdown-header-top author-log dropdown-menu animated zoomIn">
-														<li><a href="logout"><span
-																class="icon nalika-unlocked author-log-ic"></span>
-																Cerrar Sesión</a>
-																</li>
-													</ul></li>
-													
-											
-											</ul>
-										</div>
-									</div>
-<!-- 									fin del menu superior derecho y profile y messages and notifications  -->
-									
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-<!-- 					fin de la cabecera superior -->
-			
-<!-- 			inicio del breadcome-list : donde esta la casita y la descripcion de la empresa  -->
-			<div class="breadcome-area" style=" margin-top: 3px;">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-							<div class="breadcome-list" style="background-color: #576574; border-radius: 10px;">
-								<div class="row">
-									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-<!-- 									sección de la casita especificamente  -->
-										<div class="breadcomb-wp">
-											<div class="breadcomb-icon">
-											<a th:href="@{/principio}">   
-												<i class="icon nalika-home icon-wrap"></i>
-												</a> <span class="mini-click-non" style="color: white;font-weight: bolder;">INICIO</span>
-											</div>
-											<div class="breadcomb-ctn" style="margin-left: 30px;">
-												<h2>INMASER TUQUI S.A.C.</h2>
-												<p>
-													Servicios de Ingenieria y Medio Ambiente <span
-														class="bread-ntd"></span>
-												</p>
-											</div>
-										</div>
-<!-- 										fin de la casita especifica -->
-									</div>
-									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-										<div class="breadcomb-report">
-											<button data-toggle="tooltip" data-placement="left"
-												title="look" class="btn">
-												<i class="icon nalika-download"></i>
-											</button>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					
-				</div>
-			</div>
-<!-- 			fin del bredcome list -->
-   </div>
-   
-<!--    INICIO DEL CONTENEDOR  -->
-   <div class="container" id="contenedor" style="color: #fff;">
-	<div class="row">
-	
-	<div class="col-md-6" style="border: 1px solid #0652DD; border-radius: 6px; padding: 15px; margin: 30px; width: 450px;">
-	
-		<div class="form-group" >
-					<img src="/main/img/llav_fon.jpg" alt="imagen-grupal ">
-					 </div>			
-	<div class="form-group" >
-	<hr style="background-color: blue;">
-	<div class="form-group text-justify" >
-						<h2 style="color: #18dcff; margin-left: 20px;">MISIÓN</h2>
-						<p style="color: white; margin-left: 40px;">INMASER TUQUI
-							S.A.C es una empresa de servicios de Ingeniería y Medio Ambiente
-							en el ámbito público y privado, cuya misión es satisfacer las
-							necesidades de sus clientes antes, durante y después de
-							finalizado el proyecto. Nuestros servicios se ofrecen con los
-							mejores productos, procesos y tecnologías, cumpliendo los
-							estándares de calidad y plazos comprometidos, generando con ello
-							relaciones duraderas, basadas en años de experiencia y
-							profesionalismo. Buscamos respetar la legislación medioambiental
-							y laboral, junto con toda aquella que tenga relación con el
-							quehacer de la organización, orientandonos siempre hacia el
-							desarrollo de nuestra gente, generando vínculos estratégicos con
-							los proveedores.
-							
-					</div>
-	</div>
-	<div class="form-group"> 
-	<img th:src="@{/main/img/worker_in.jpeg}" alt="imagen 1" style="width: 100%; border: 1px solid #0652DD; border-radius: 6px; height: 20%;">
-	</div>
-	</div>
-	
-	<div class="col-md-6" style="border: 1px solid #0652DD; border-radius: 6px; padding: 15px; margin: 30px; width: 450px; ">
-	<div class="form-group" style="height: 260px;">
-					<img src="/main/img/tuerc.jpg" alt="imagen-grupal ">
-					 </div>	
-	<div class="form-group" style="height: 350px;">
-	<hr style="background-color: blue; color: blue; background-clip: blue;">
-	<h2 style="color: #18dcff; margin-left: 20px;">VISIÓN</h2>
-					<p style="color: white; margin-left: 30px; text-align:justify; "> Ser líderes en Ingeniería y Medio Ambiente en los proyectos
-						donde tengamos campo de acción, así como contribuir al medio
-						ambiente, en la medida de nuestras posibilidades. Aspiramos a
-						formar un grupo cohesionado de trabajadores especializados que
-						desarrollen su labor en un armonioso ambiente de trabajo,
-						prestando la máxima atención a la salud laboral de los mismos y
-						garantizando la máxima seguridad en los distintos desempeños.
-					</p>
-	</div>
-	<div class="form-group"> 
-	<img th:src="@{/main/img/trabaj.jpeg}" alt="cambiar fast 1" style="width: 100%; border: 1px solid #0652DD; border-radius: 6px; height: 20%;">
-	</div>
-	</div>
-	
-	
-	</div>
-	
-	<div class="form-group text-center" style="width: 1100px;; background-color: #57606f; height: 100px; border-radius: 10px; border-color: transparent;">
-				<h3 style="padding-top: 33px;"> Inmaser Tuqui S.A.C.</h3>
-				</div>
-   </div>
-<!--    FIN DEL CONTENEDOR PRINCIPAL  -->
+      <div class="row">
+        <div class="col-md-6 col-lg-3">
+          <div class="widget-small primary coloured-icon"><i class="icon fa fa-users fa-3x"></i>
+            <div class="info">
+              <h4>Clientes</h4>
+              <p><b>5</b></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="widget-small info coloured-icon"><i class="icon fas fa-chart-bar fa-3x"></i>
+            <div class="info">
+              <h4>Artículos</h4>
+              <p><b>25</b></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="widget-small warning coloured-icon"><i class="icon fa fa-files-o fa-3x"></i>
+            <div class="info">
+              <h4>Ventas</h4>
+              <p><b>100</b></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="widget-small danger coloured-icon"><i class="icon fa fa-files-o fa-3x"></i>
+            <div class="info">
+              <h4>Compras</h4>
+              <p><b>50</b></p>
+            </div>
+          </div>
+        </div>
+      </div>
+<!--       Inicio de los cuadros grandes  -->
+      <div class="row">
+        <div class="col-md-6">
+          <div class="tile">
+            <h3 class="tile-title">Biblias</h3>
+            <div class="embed-responsive">
+             <img alt="cambiar de imagen" src="main/img/biblio.jpg" style="width: 85%;">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="tile">
+            <h3 class="tile-title">Pensando en los niños y su bienestar</h3>
+            <div class="embed-responsive">
+              <img alt="siguiente" src="main/img/ninos.jpg">
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-6">
+          <div class="tile">
+            <h3 class="tile-title">Misión</h3>
+            <ul>
+              <li>Brindar una atención de calidad a sus clientes</li>
+              <li>Siempre sonreir al cliente</li>
+              <li>Tener más tiendas ramas en otras partes del Perú</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="tile">
+            <h3 class="tile-title">Visión</h3>
+            <p>Ser líder en la difusion de materiales educativos y fomentar una cultura de desarrollo sano en los niños.</p>
+            </div>
+        </div>
+      </div>
     </div>
-   <!-- jquery
-		============================================ -->
-	<script  th:src="@{/main/js/vendor/jquery-1.12.4.min.js}" ></script>
-	<!-- bootstrap JS
-		============================================ -->
-	<script th:src="@{/main/js/bootstrap.min.js}"  ></script>
-	<!-- wow JS
-		============================================ -->
-	<script th:src="@{/main/js/wow.min.js}"></script>
-	<!-- price-slider JS
-		============================================ -->
-	<script th:src="@{/main/js/jquery-price-slider.js}" ></script>
-	<!-- meanmenu JS
-		============================================ -->
-	<script th:src="@{/main/js/jquery.meanmenu.js}" ></script>
-	<!-- owl.carousel JS
-		============================================ -->
-	<script th:src="@{/main/js/owl.carousel.min.js}" ></script>
-	<!-- sticky JS
-		============================================ -->
-	<script th:src="@{/main/js/jquery.sticky.js}" ></script>
-	<!-- scrollUp JS
-		============================================ -->
-	<script th:src="@{/main/js/jquery.scrollUp.min.js}" ></script>
-	<!-- mCustomScrollbar JS
-		============================================ -->
-	<script th:src="@{/main/js/scrollbar/jquery.mCustomScrollbar.concat.min.js}" ></script>
-	<script th:src="@{/main/js/scrollbar/mCustomScrollbar-active.js}"></script>
-	<!-- metisMenu JS
-		============================================ -->
-	<script th:src="@{/main/js/metisMenu/metisMenu.min.js}"></script>
-	<script th:src="@{/main/js/metisMenu/metisMenu-active.js}"></script>
-	<!-- sparkline JS
-		============================================ -->
-	<script th:src="@{/main/js/sparkline/jquery.sparkline.min.js}"></script>
-	<script th:src="@{/main/js/sparkline/jquery.charts-sparkline.js}"></script>
-	
-	<!-- float JS
-		============================================ -->
-	<script th:src="@{/main/js/flot/jquery.flot.js}"></script>
-	<script th:src="@{/main/js/flot/jquery.flot.resize.js}"></script>
-	<script th:src="@{/main/js/flot/curvedLines.js}"></script>
-	<script th:src="@{/main/js/flot/flot-active.js}"></script>
-	<!-- plugins JS
-		============================================ -->
-	<script th:src="@{/main/js/plugins.js}"></script>
-	<!-- main JS
-		============================================ -->
-	<script  th:src="@{/main/js/main.js}"></script>
-</body>
+<!--     fin de las etiquetas -->
 
+    <!-- Essential javascripts for application to work-->
+    <script src="main/js/jquery-3.2.1.min.js"></script>
+    <script src="main/js/popper.min.js"></script>
+    <script src="main/js/bootstrap.min.js"></script>
+    <script src="main/js/main.js"></script>
+    <!-- The javascript plugin to display page loading on top-->
+    <script src="main/js/plugins/pace.min.js"></script>
+    <!-- Page specific javascripts-->
+    <script type="text/javascript" src="main/js/plugins/chart.js"></script>
+    <script type="text/javascript">
+      var data = {
+      	labels: ["January", "February", "March", "April", "May"],
+      	datasets: [
+      		{
+      			label: "My First dataset",
+      			fillColor: "rgba(220,220,220,0.2)",
+      			strokeColor: "rgba(220,220,220,1)",
+      			pointColor: "rgba(220,220,220,1)",
+      			pointStrokeColor: "#fff",
+      			pointHighlightFill: "#fff",
+      			pointHighlightStroke: "rgba(220,220,220,1)",
+      			data: [65, 59, 80, 81, 56]
+      		},
+      		{
+      			label: "My Second dataset",
+      			fillColor: "rgba(151,187,205,0.2)",
+      			strokeColor: "rgba(151,187,205,1)",
+      			pointColor: "rgba(151,187,205,1)",
+      			pointStrokeColor: "#fff",
+      			pointHighlightFill: "#fff",
+      			pointHighlightStroke: "rgba(151,187,205,1)",
+      			data: [28, 48, 40, 19, 86]
+      		}
+      	]
+      };
+      var pdata = [
+      	{
+      		value: 300,
+      		color: "#46BFBD",
+      		highlight: "#5AD3D1",
+      		label: "Complete"
+      	},
+      	{
+      		value: 50,
+      		color:"#F7464A",
+      		highlight: "#FF5A5E",
+      		label: "In-Progress"
+      	}
+      ]
+      
+      var ctxl = $("#lineChartDemo").get(0).getContext("2d");
+      var lineChart = new Chart(ctxl).Line(data);
+      
+      var ctxp = $("#pieChartDemo").get(0).getContext("2d");
+      var pieChart = new Chart(ctxp).Pie(pdata);
+    </script>
+    <!-- Google analytics script-->
+    <script type="text/javascript">
+      if(document.location.hostname == 'pratikborsadiya.in') {
+      	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      	ga('create', 'UA-72504830-1', 'auto');
+      	ga('send', 'pageview');
+      }
+    </script>
+  </body>
 </html>
