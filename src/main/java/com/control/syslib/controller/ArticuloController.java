@@ -30,6 +30,7 @@ public class ArticuloController {
 	public @ResponseBody String vertodo_ar(HttpServletRequest request) {
 	return g.toJson(as.readAll());
 	}
+	
 	@GetMapping("/agregar_articulo")
 	public String agregar_art(Model model) {	
 		model.addAttribute("departamento",as.readdepartamentos());
