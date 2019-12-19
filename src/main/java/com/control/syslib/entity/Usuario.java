@@ -24,6 +24,15 @@ public Usuario(int idusuario, String usuario, String password, int estado, int i
 	this.estado = estado;
 	this.idpersona = idpersona;
 }
+
+public Usuario(int idusuario, String usuario, String password, int estado) {
+	super();
+	this.idusuario = idusuario;
+	this.usuario = usuario;
+	this.password = password;
+	this.estado = estado;
+}
+
 public int getIdusuario() {
 	return idusuario;
 }

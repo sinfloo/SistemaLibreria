@@ -1,0 +1,219 @@
+
+<div class="container">
+	
+	<div class="row tile">
+		<div class="col-md-4">
+			<div class="form-group">
+				<label>TIPO CLIENTE</label> <select
+					class="form-control select_tra_u" id="combazo"
+					onchange="seleccionar_tipo_cliente()">
+					<option selected value="0">Seleccione tipo de cliente</option>
+					<option >Cliente General</option>
+					<option>Cliente Existente</option>
+				</select>
+				
+				<div id="alerta" class="alert alert-success" role="alert">
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="form-group">
+				<label>CLIENTE</label> <select class="form-control select_tra_u"
+					id="combito" onchange="mostrarNombreCliente()" disabled="disabled">
+					<option selected value="0">Seleccione un cliente</option>
+				</select>
+				<div id="alerta_cliente" class="alert alert-success" role="alert">
+				---></div>
+				
+			</div>
+		</div>
+		<div class="col-md-2" style="margin-left: 20px;">
+			<label>FECHA</label> <input type="text" id="fecha_venta"
+				class="form-control"
+				style="border: solid gray 1px; border-radius: 15px; text-align: center; font-weight: bold; background-color: #FFC312;" disabled="disabled"/>
+		</div>
+		<div class="col-md-1">
+			<label>ESTADO</label> <input type="number" class="form-control"
+				id="estado_venta"
+				style="border: solid gray 1px; border-radius: 15px; text-align: center; background-color: #D980FA;" />
+		</div>
+
+	</div>
+	<!--   Fin de los campos de tipo, cliente y fecha -->
+	<!-- 	datos del detalle -->
+
+	<!-- inicio del campo de articulos listados -->
+	<h1>Lista de articulos</h1>
+	 <div class="col-lg-6">
+     <div class="input-group" style="align-content: center;">
+      <input type="text" class="form-control" placeholder="Buscar por..." id="boton_buscar">
+      <span class="input-group-btn">
+        <button class="btn btn-success" type="button"><i class="fas fa-search"></i></button>
+      </span>
+    </div><!-- /input-group -->
+     </div><!-- /.col-lg-6 -->
+     <br>
+     <div class="tile">
+	<div class="container"
+		style="overflow-y: scroll; overflow-x: hidden; height: 400px;">
+
+		<table class="table table-hover text-left table-responsive"
+			id="tablita">
+			<thead>
+				<tr>
+					<th scope="col">ID</th>
+					<th scope="col">N°</th>
+					<th scope="col">ARTICULO</th>
+					<th scope="col">STOCK</th>
+					<th scope="col">PRECIO VENTA</th>
+					<th scope="col">DEPARTAMENTO</th>
+					<th scope="col">ESTADO</th>
+					<th scope="col">AÑADIR</th>
+				</tr>
+			</thead>
+			<tbody id="tablon">
+
+			</tbody>
+		</table>
+	</div>
+	</div>
+	<!-- fin del campo de articulos listados  -->
+	<hr class="text-primary" style="border: solid 1px;">
+	<hr class="text-primary" style="border: solid 1px;">
+	<!-- inicio del campo de articulos añadidos al carrito -->
+	<div class="container tile">
+
+		<table class="table table-hover text-left " id="carrito">
+			<thead>
+				<tr>
+					<th scope="col">COD ARTICULO</th>
+					<th scope="col">ARTICULO</th>
+					<th scope="col">CANTIDAD</th>
+					<th scope="col">PRECIO UNITARIO</th>
+					<th scope="col">SUBTOTAL</th>
+					<th scope="col">DESCUENTO</th>
+				</tr>
+			</thead>
+			<tbody id="carro">
+
+			</tbody>
+		</table>
+		<hr>
+		<div class="input-group mb-3" style="width: 300px;">
+			<div class="input-group-prepend">
+				<span class="input-group-text">S/.</span>
+			</div>
+			<input type="number" class="form-control" id="montoo"
+				aria-label="Amount (to the nearest dollar)" disabled="disabled">
+			<div class="input-group-append">
+				<span class="input-group-text">.00</span>
+			</div>
+
+		</div>
+	</div>
+	<!-- fin del campo de articulos añadidos al carrito  -->
+	<hr class="text-primary" style="border: solid 1px;">
+	<hr class="text-primary" style="border: solid 1px;">
+	<!-- boton registrar venta -->
+	<div class="form-group">
+
+		<input type="button"
+			style="border: solid gray 1px; border-radius: 15pxpx; margin-left: 867px;"
+			class="btn btn-warning" onclick="registrar_venta()"
+			value="Registrar Venta" />
+	</div>
+	<!-- fin del boton registrar venta -->
+
+</div>
+
+
+<!--     fin de las etiquetas -->
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal definir cantidad -->
+<div class="modal fade" id="modal_carrito" tabindex="-1" role="dialog"
+	aria-labelledby="exampleModalLabel" aria-hidden="true" >
+	<div class="modal-dialog" role="document">
+		<div class="modal-content" style="overflow:hidden; border:thick;">
+			<div class="modal-header" style=" background-color:#1e272e;">
+				<h5 class="modal-title" id="exampleModalLabel" style="color: #fff;">Definir Cantidad</h5>
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<input id="id_article" type="text" style="width: 20px;"
+					hidden="hidden"> <label>Stock:</label><input
+					id="stock_articulo" type="text"
+					style="width: 40px; margin-left: 10px;" disabled="disabled">
+					<br>
+					<input
+					id="nombre_articulo" type="text"
+					style="width: 300px; margin-left: 10px;" disabled="disabled">
+				<hr>
+				<div class="form-group">
+					<input type="number" class="form-control text-primary"
+						id="cantidad_add" placeholder="ingrese cantidad a vender "
+						style="font-weight: bold 200;" autofocus="autofocus">
+				</div>
+
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary"
+					onclick="añadir_carrito()">Agregar</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Modal Registro Venta Exitoso -->
+<div class="modal fade" id="mensaje_venta_exitosa" tabindex="-1"
+	role="dialog" aria-labelledby="exampleModalCenterTitle"
+	aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLongTitle"
+					style="color: #EA2027;">Mensaje Confirmación</h5>
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<h4 style="color: #1B1464;">Su venta fue registrado
+					exitosamente!</h4>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- 		jalar script para la venta nueva -->
+<script src="js/venta_add.js"></script>
+
+<script type="text/javascript">
+$('#boton_buscar').on('keyup', function() {
+	var value = $(this).val();
+	var patt = new RegExp(value, "i");
+	$('#tablon').find('tr').each(function() {
+		if (!($(this).find('td').text().search(patt) >= 0)) {
+			$(this).not('.myHead').hide();
+		}
+		if (($(this).find('td').text().search(patt) >= 0)) {
+			$(this).show();
+		}
+	});
+});
+</script>
+
+
+
+
+

@@ -1,10 +1,89 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>usuario</title>
-</head>
-<body>
-<h1>Soy el usuario</h1>
-</body>
-</html>
+
+<!--       fin de la cabecera  -->
+<div id="contenedor_us">
+      <div class="container" id="container-content" style="color: black;">
+			<header style="width: 100%;">
+				<h4>Lista de Usuarios</h4>
+				<a href="#" id="new_user" style="color: #9980FA;"><i
+					class="fas fa-plus-circle fa-2x"></i></a>
+			</header>
+			<table class="table table-hover text-left" style="color: black;" id="tablita">
+				<thead>
+					<tr>
+						<th scope="col">ID</th>
+						<th scope="col">N°</th>
+						<th scope="col">USUARIO</th>
+						<th scope="col">CONTRASEÑA</th>
+						<th scope="col">ESTADO</th>
+						<th scope="col">NOMBRES</th>
+						<th scope="col">APELLIDOS</th>
+						<th scope="col">DNI</th>
+						<th scope="col">EDITAR</th>
+					    <th scope="col">ELIMINAR</th>
+					</tr>
+				</thead>
+				<tbody id="tablon">
+					
+				</tbody>
+			</table>
+			
+			</div>
+			<!--  <h5>Datos Actualizados</h5>-->
+		</div>
+		<!-- Modal Modificar-->
+<div class="modal fade" id="modal_us" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalScrollableTitle">Editar Usuario</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="color: #fff;">
+      <div class="row">
+      
+      <div class="col-md-6">
+      <input class="form-control" type="number" id="idusua" disabled="disabled" style="background-color: #D6A2E8; width: 200px; color: white; border: none; border-radius: 6px;">
+        <br>
+        <input class="form-control" type="text" id="nombre_u" style="background-color: #D6A2E8; width: 200px; color: white; border: none; border-radius: 6px;">
+        <br>
+      </div>
+      
+       <div class="col-md-6">
+       <input class="form-control" type="text" id="pass_u" style="background-color: #D6A2E8; width: 200px; color: white; border: none; border-radius: 6px;">
+        <br>
+        <input class="form-control" type="number" id="estadoo" style="background-color: #D6A2E8; width: 200px; color: white; border: none; border-radius: 6px;">
+        <br>
+        <input type="text" id="idpersona" hidden>
+      </div>
+      
+      </div>
+        
+       
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" onclick="actualizar_u()" class="btn" style="background-color: #3B3B98; border: none; border-radius: 6px; color: #fff; font-weight: bold;">Actualizar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--     fin de las etiquetas -->
+
+    <!-- Essential javascripts for application to work-->
+    <script src="js/usuario.js"></script>
+    
+    <script>
+    $("#new_user").click(function(){
+    	console.log("estamos en la funcion cargar componente ");
+        $.get("/agregar_us", function(htmlexterno){
+   $("#contenedor_us").html(htmlexterno);
+    	});
+	});
+	</script>
+    
+    
+    
+    

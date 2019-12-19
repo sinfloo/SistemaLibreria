@@ -1,0 +1,48 @@
+
+<!--       fin de la cabecera  -->
+
+      <div class="container" id="container-content" style="color: black;">
+			<header style="width: 100%;">
+				<h4>Agregar Departamento</h4>
+			</header>
+	<div class="row">
+	<div class="col-md-6" >
+	<input type="text" class="form-control" id="nom" placeholder="Nombre" style="background-color:#1abc9c; border-radius:6px; height: 45px;font-weight: bold; color: #fff;">
+	<hr>
+	<input type="text" class="form-control" id="des" placeholder="Descripción" style="background-color:#1abc9c; border-radius:6px; height: 45px;font-weight: bold;color: #fff; ">
+	<hr>
+	<input type="number" class="form-control" id="num" placeholder="estado" style="background-color:#1abc9c; border-radius:6px;  height: 45px;font-weight: bold; color: #fff;">
+	<hr>
+	</div>
+
+	 <div class="col-md-6">
+			<div class="form-group" style="margin-top: 120px; margin-left: 100px;">
+		<input type="button" class="btn btn-success" onclick="guardar_u()" value="Enviar Datos" style="font-weight: bold;">
+		<a class="btn btn-danger" onclick="guardar_u()"; style="color: #fff; font-weight: bold;" >Cancelar</a>
+		</div>
+		
+	</div> 
+	</div>
+				
+		</div>
+<!--     fin de las etiquetas -->
+<!-- modal de registro exitoso departamento -->
+ <div class="modal fade" id="mostrarmodal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+           <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+           </div>
+           <div class="modal-body">
+              <h4>EL DEPARTAMENTO SE GUARDO EXITOSAMENTE</h4>
+                 
+       </div>
+           <div class="modal-footer">
+          <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+           </div>
+      </div>
+   </div>
+</div>	
+    <!-- Essential javascripts for application to work-->
+    <script th:src="@{/js/departamento_add.js}"></script>
+   

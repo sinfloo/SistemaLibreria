@@ -1,0 +1,53 @@
+<!--      inicio del contenido especial del cierre -->
+     <div class="container">
+					<div class="form-group">
+						<div class="row">
+							<div class="col-md-6">
+								<label>Fecha Inicio:</label> <input type="date" id="date_inicio"
+									class="form-control" style="width: 280px;">
+							</div>
+							<div class="col-md-6">
+								<label>Fecha Término</label> <input type="date"
+									class="form-control" id="date_fin" style="width: 280px;">
+							</div>
+						</div>
+						<hr>
+						<div class="row">
+							<div class="col-xs-6 col-md-6">
+								<label>Calcular</label>
+								<br>
+								<input type="button" value="Monto" onclick="fechas()"
+							class="btn btn-info">
+							</div>
+							<div class="col-xs-6 col-md-6">
+							<label>Monto Total </label>
+							<input type="text" class="form-control" id="monto_total" disabled style="width: 280px;" >
+							</div>
+						</div>
+					
+						<hr>
+						<div class="row">
+							<div class="col-xs-6 col-md-6">
+								<label>ESTADO</label>
+								<input type="number" class="form-control" id="estado_cierre" style=" border: solid white 1px; 
+								border-radius: 15px; text-align: center; background-color:#006266; 
+								color: #f5f6fa; font-weight: bold; width: 100px;" />   			
+   			
+							</div>
+							<div class="col-xs-6 col-md-6">
+							<br>
+							<input type="button" value="Efectuar Cierre" onclick="guardar_cierre()"
+						class="btn btn-primary" style="margin-left: 150px; border-radius: 20px;">
+							</div>
+						</div>
+					</div>
+					
+				</div>
+<!-- 		fin del contenido especial del cierre caja -->
+ 
+<!--     fin de las etiquetas -->
+
+    <!-- The javascript plugin to display page loading on top-->
+	<script src="js/cierrecaja_add.js"></script>
+	
+	

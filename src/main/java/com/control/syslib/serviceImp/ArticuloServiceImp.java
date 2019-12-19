@@ -30,6 +30,11 @@ public class ArticuloServiceImp implements ArticuloService {
 		return ad.readdepartamentos();
 	}
 
+	@Override
+	public List<Map<String, Object>> read_one_article(int ida) {
+		return ad.read_one_article(ida);
+	}
+
 
 
 }

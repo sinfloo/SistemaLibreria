@@ -39,4 +39,22 @@ private UsuarioDao ud;
 		return ud.Validar_Mapeo_dat(User, Pass);
 	}
 
+	@Override
+	public void edit(Usuario u) {
+		ud.edit(u);
+		
+	}
+
+	@Override
+	public void delete(int id) {
+		ud.delete(id);
+		
+	}
+
+	@Override
+	public List<Map<String, Object>> read_persona() {
+		// TODO Auto-generated method stub
+		return ud.read_persona();
+	}
+
 }

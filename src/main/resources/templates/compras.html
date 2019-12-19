@@ -1,0 +1,75 @@
+<!--       fin de la cabecera  -->
+
+<div id="contenedor_compra">
+	<div class="container" id="container-content" style="color: black;">
+	<h4>Lista de Compras</h4>
+		<header style="width: 100%;margin-left: 1000px;">
+			<a href="#" id="new_buy" style="color: #9980FA;"><i
+				class="fas fa-plus-circle fa-2x"></i></a>
+		</header>
+<!-- 		inicio del boton buscar -->
+		<div class="col-lg-6">
+			<div class="input-group" style="align-content: center;">
+				<input type="text" class="form-control" placeholder="Buscar por..."
+					id="boton_buscar"> <span class="input-group-btn">
+					<button class="btn btn-success" type="button">
+						<i class="fas fa-search"></i>
+					</button>
+				</span>
+			</div>
+			<!-- /input-group -->
+		</div> <!-- /.col-lg-6 -->
+		<hr>
+<!-- 		div para el scroll deslizable vertical activado -->
+	<div style="overflow-y: scroll; overflow-x: hidden; height: 400px;">
+		<table class="table table-hover text-left" style="color: black;"
+			id="tablita">
+			<thead>
+				<tr style="background-color: #60a3bc;">
+					<th scope="col">ID</th>
+					<th scope="col">N°</th>
+					<th scope="col">FECHA</th>
+					<th scope="col">IMPORTE TOTAL</th>
+					<th scope="col">TIPO</th>
+					<th scope="col">ESTADO</th>
+					<th scope="col">USUARIO</th>
+					<th scope="col">PROVEEDOR</th>
+				</tr>
+			</thead>
+			<tbody id="tablon">
+
+			</tbody>
+		</table>
+		</div>
+		<!--  <h5>Datos Actualizados</h5>-->
+	</div>
+</div>
+
+
+
+<!-- Essential javascripts for application to work-->
+<script src="js/compra.js"></script>
+
+<script type="text/javascript">
+	$("#new_buy").click(function() {
+		console.log("estamos dentro de la funcion agregar compra ");
+		$.get("/agregar_compra", function(htmlexterno) {
+			$("#contenedor_compra").html(htmlexterno);
+		});
+	});
+	
+	 // aqui establecemos el input de busqueda 
+    $('#boton_buscar').on('keyup', function() {
+	var value = $(this).val();
+	var patt = new RegExp(value, "i");
+	$('#tablon').find('tr').each(function() {
+		if (!($(this).find('td').text().search(patt) >= 0)) {
+			$(this).not('.myHead').hide();
+		}
+		if (($(this).find('td').text().search(patt) >= 0)) {
+			$(this).show();
+		}
+	});
+});
+</script>
+

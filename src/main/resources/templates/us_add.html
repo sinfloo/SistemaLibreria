@@ -1,0 +1,50 @@
+<div class="container" style="color: black;">
+	<header style="width: 100%;">
+		<h4>Agregar Usuarios</h4>
+	</header>
+	<div class="row">
+		<div class="col-md-6">
+			<input type="text" class="form-control" id="us" placeholder="usuario"
+				style="background-color: #1abc9c; border-radius: 6px; height: 45px; font-weight: bold; color: #fff;">
+			<hr>
+			<input type="password" class="form-control" id="pass"
+				placeholder="contraseña"
+				style="background-color: #1abc9c; border-radius: 6px; height: 45px; font-weight: bold; color: #fff;">
+			<hr>
+			<input type="number" class="form-control" id="num"
+				placeholder="estado"
+				style="background-color: #1abc9c; border-radius: 6px; height: 45px; font-weight: bold; color: #fff;">
+			<hr>
+		</div>
+
+		<div class="col-md-6">
+			<div class="form-group" style="color: #222f3e; font-weight: bold;">
+				<select class="form-control" id="idpersona_u"
+					style="background-color: #1abc9c; border-radius: 6px; height: 45px; font-weight: bold;">
+					<option selected value="0">Seleccione persona</option>
+
+				</select>
+			</div>
+			<div class="form-group"
+				style="margin-top: 120px; margin-left: 100px;">
+				<input type="button" class="btn btn-success" onclick="guardar_u()"
+					value="Enviar Datos" style="font-weight: bold;"> <a
+					class="btn btn-danger" href="lista_usuario"
+					style="color: #fff; font-weight: bold;">Cancelar</a>
+			</div>
+
+		</div>
+	</div>
+
+
+
+
+
+</div>
+<!--     fin de las etiquetas -->
+
+<!-- Essential javascripts for application to work-->
+
+<script src="js/usuario_add.js"></script>
+
+

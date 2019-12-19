@@ -1,0 +1,54 @@
+   <div id="contenedor_new_prov">
+      <div class="container" id="container-content" style="color: black;">
+			<header class="error" style="width: 100%;">
+				<h4>Validar Proveedor</h4>
+			</header>
+	<div class="row">
+	<div class="col-md-7" id="formularioProveedor" >
+	<input type="number" class="form-control" id="ruc" required="required" placeholder="ingrese ruc" style="background-color:#1abc9c; border-radius:6px;  height: 45px;font-weight: bold; color: #fff;">
+	<hr>
+	<div class="alert alert-success" role="alert">El RUC ya está registrado</div>
+	<div class="alert alert-danger" role="alert">El RUC NO está registrado</div>
+	<hr>
+	<input type="button" class="btn btn-success" onclick="validar_prov()" value="Validar Proveedor" style="font-weight: bold;">
+	</div>
+
+	 <div class="col-md-12">
+		<div class="form-group" style="margin-top: 120px; margin-left: 100px;">
+		<input type="button" class="btn btn-success" id="new_provider" value="Registrar Nuevo Proveedor" style="font-weight: bold;">
+		<a class="btn btn-danger" href="/principio" style="color: #fff; font-weight: bold;" >Cancelar</a>
+		</div>
+		
+	</div> 
+	</div>
+			
+			
+		
+		</div>
+<!--     fin de las etiquetas -->
+
+    <!-- Essential javascripts for application to work-->
+  </div>
+    <script src="js/prov_validar.js"></script>
+    <script>
+//     limitar el numero a 11
+    var input=  document.getElementById('ruc');
+    input.addEventListener('input',function(){
+      if (this.value.length > 11) 
+         this.value = this.value.slice(0,11); 
+    })
+    
+    // redireccionar a nuevo proveedor
+    $("#new_provider").click(function() {
+		console.log("estamos en la funcion U.u ");
+		$.get("/agregar_pro", function(htmlexterno) {
+			$("#contenedor_new_prov").html(htmlexterno);
+		});
+	});
+    
+	</script>
+   
+   
+   
+   
+   

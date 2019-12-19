@@ -1,0 +1,83 @@
+
+<!--       fin de la cabecera  -->
+
+     <div class="container" id="container-content" >
+			<header style="margin-left: 200px;">
+				<h4>Visualizar Stock </h4>
+			</header>
+<!-- 			Inicio del campo imprimir orden de compra  -->
+			<div class="container" id="imprimir_orden_compra">
+			<div class="form-group" id="cabecerita" hidden="">
+				 <label >Ediciones ADEVENIR</label>
+ 				 <p class="text-justify">Dedicado a brindar un servicio de calidad en la venta de materiales 
+	 				 educativos y didacticos
+ 				 de la localidad</p>	
+ 				 <input type="text" class="form-control" value="Lurigancho-Chosica 15464" id="direccion_orden" disabled="disabled"/>
+ 				 <input type="text" class="form-control" value="Ñaña, Lima-Perú" id="ciudad_orden" disabled="disabled"/>
+ 				 <input type="text" class="form-control" id="fecha_orden" disabled="disabled"/>
+			</div>
+			
+			<table class="table table-hover text-left" style="color: black; width: 700px; " id="tablita">
+				<thead >
+					<tr style="border: solid #079992 3px; color: #079992;">
+						<th scope="col">ID</th>
+						<th scope="col">N°</th>
+						<th scope="col">NOMBRE</th>
+						<th scope="col">ESTADO</th>
+						<th scope="col">STOCK</th>
+						<th scope="col">CONDICIÓN</th>
+						
+					</tr>
+				</thead>
+				<tbody id="tablon">
+					
+				</tbody>
+			</table>
+<!-- 			inicio de los campitos del total de productos stock  -->
+				<div class="row" hidden="hidden" id="campito">
+								<div class="col-xs-6 col-md-12">
+								<label>Total de productos bajo limite: </label>
+									<input type="text" class="form-control" id="productos_bajolimite" style="width: 100px;" />
+								</div>
+								<div class="col-xs-6 col-md-12">
+							    <label>Total de productos faltantes: </label>
+									<input type="text" class="form-control" id="productos_faltantes" style="width: 100px;" />							
+								</div>	
+				</div>
+<!-- 				fin del los campitos del total productos stock  -->
+				<div class="row" style="margin-top: 320px;" id="firmita" hidden="hidden">
+							<div class="col-xs-6 col-md-6">
+									<hr style=" height: 1px; width: 300px; background-color: black; ">
+							</div>
+							<div class="col-xs-6 col-md-6">
+									<hr style=" height: 1px; width: 300px; background-color: black; ">
+							</div>
+				</div>
+			
+			</div>
+<!-- 			fin del campo imprimir orden de compra  -->
+			 <h5 style="margin-left: 213px; margin-top: 200px;">Datos Actualizados</h5>
+			 
+			 <div class="form-group col-xs-12 col-sm-12 col-md-3" style="margin-left: 200px;">
+			 <input class="btn btn-primary" type="button" value="Generar Orden Compra" onclick="generar_orden()" />
+			 </div>
+		</div>
+		
+
+    <!-- Essential javascripts for application to work-->
+    <script src="js/ver_stock.js"></script>
+    <!-- Page specific javascripts-->
+    <script src="js/printThis.js"></script>
+     <script>
+    var opciones = { 
+			importCSS : false,
+  			loadCSS : "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+		}
+
+		function generar_orden() { 
+    		$("#campito").toggle();
+    		$("#firmita").toggle();
+    		$("#cabecerita").toggle();
+			$('#imprimir_orden_compra').printThis(opciones);
+		}
+    </script>

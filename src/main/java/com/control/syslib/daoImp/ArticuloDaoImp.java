@@ -33,5 +33,11 @@ public class ArticuloDaoImp implements ArticuloDao{
 		return jt.queryForList(sql);
 	}
 
+	@Override
+	public List<Map<String, Object>> read_one_article(int ida) {
+		String sql="{CALL LISTAR_UN_ARTICULO(?)}";
+		return jt.queryForList(sql,ida);
+	}
+
 
 }

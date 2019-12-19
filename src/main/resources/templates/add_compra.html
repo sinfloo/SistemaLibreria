@@ -1,0 +1,221 @@
+<h2>Armar Nueva Compra</h2>
+<div class="container">
+	
+	<div class="row">
+		<div class="col-md-2">
+			<div class="form-group">
+				<label>TIPO COMPROBANTE</label> <select
+					class="form-control select_tra_u" id="combazo"
+					onchange="seleccionar_comprobante()">
+					<option selected value="0">Seleccione tipo de comprobante</option>
+					<option >Boleta</option>
+					<option>Factura</option>
+				</select>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="form-group">
+				<label>PROVEEDOR</label> <select class="form-control select_tra_u"
+					id="combito" onchange="mostrar_proveedor()">
+					<option selected value="0">Seleccione proveedor</option>
+				</select>
+			</div>
+			<div id="alerta_proveedor" class="alert alert-success" role="alert">
+			</div>
+			<div id="alerta_proveedor_error" class="alert alert-danger" role="alert">
+			</div>
+		</div>
+		<div class="col-md-2" style="margin-left: 20px;">
+			<label>FECHA</label> <input type="text" id="fecha_compra"
+				class="form-control"
+				style="border: solid gray 1px; border-radius: 15px; text-align: center; font-weight: bold; background-color: #9980FA;"
+				disabled="disabled" />
+		</div>
+		<div class="col-md-1">
+			<label>ESTADO</label> <input type="number" class="form-control"
+				id="estado_compra"
+				style="border: solid gray 1px; border-radius: 15px; text-align: center; background-color: #12CBC4;" />
+		</div>
+
+	</div>
+	<!--   Fin de los campos de tipo, cliente y fecha -->
+	<!-- 	datos del detalle -->
+	
+	<hr>
+
+	<!-- inicio del campo de articulos listados -->
+	<h1>Seleccionar articulos</h1>
+	 <div class="col-lg-6">
+     <div class="input-group" style="align-content: center;">
+      <input type="text" class="form-control" placeholder="Buscar por..." id="boton_buscar">
+      <span class="input-group-btn">
+        <button class="btn btn-success" type="button"><i class="fas fa-search"></i></button>
+      </span>
+    </div><!-- /input-group -->
+     </div><!-- /.col-lg-6 -->
+	<br>
+	<div class="container"
+		style="overflow-y: scroll; overflow-x: hidden; height: 400px;">
+
+		<table class="table table-hover text-left table-responsive"
+			id="tablita">
+			<thead>
+				<tr>
+					<th scope="col">ID</th>
+					<th scope="col">N°</th>
+					<th scope="col">ARTICULO</th>
+					<th scope="col">STOCK</th>
+					<th scope="col">PRECIO VENTA</th>
+					<th scope="col">DEPARTAMENTO</th>
+					<th scope="col">ESTADO</th>
+					<th scope="col">AÑADIR</th>
+				</tr>
+			</thead>
+			<tbody id="tablon">
+
+			</tbody>
+		</table>
+	</div>
+	<!-- fin del campo de articulos listados  -->
+	<hr class="text-primary" style="border: solid 1px;">
+	<hr class="text-primary" style="border: solid 1px;">
+	<!-- inicio del campo de articulos añadidos al carrito -->
+	<div class="container">
+
+		<table class="table table-hover text-left " id="carrito">
+			<thead>
+				<tr>
+					<th scope="col">COD ARTICULO</th>
+					<th scope="col">ARTICULO</th>
+					<th scope="col">CANTIDAD</th>
+					<th scope="col">PRECIO UNITARIO</th>
+					<th scope="col">SUBTOTAL</th>
+				</tr>
+			</thead>
+			<tbody id="carro">
+
+			</tbody>
+		</table>
+		<hr>
+		<div class="input-group mb-3" style="width: 300px;">
+			<div class="input-group-prepend">
+				<span class="input-group-text">S/.</span>
+			</div>
+			<input type="number" class="form-control" id="montoo"
+				aria-label="Amount (to the nearest dollar)" disabled="disabled">
+			<div class="input-group-append">
+				<span class="input-group-text">.00</span>
+			</div>
+
+		</div>
+	</div>
+	<!-- fin del campo de articulos añadidos al carrito  -->
+	<hr class="text-primary" style="border: solid 1px;">
+	<hr class="text-primary" style="border: solid 1px;">
+	<!-- boton registrar venta -->
+	<div class="form-group">
+
+		<input type="button"
+			style="border: solid gray 1px; border-radius: 15pxpx; margin-left: 867px;"
+			class="btn btn-warning" onclick="registrar_compra()"
+			value="Registrar Compra" />
+	</div>
+	<!-- fin del boton registrar venta -->
+
+</div>
+
+<!--     fin de las etiquetas -->
+
+
+<!-- INICIO DE LOS MODALES -->
+
+
+
+<!-- Modal definir cantidad -->
+<div class="modal fade" id="modal_carrito" tabindex="-1" role="dialog"
+	aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Definir Cantidad</h5>
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<input id="id_article" type="text" style="width: 20px;"
+					disabled="disabled" hidden="hidden"> <label>Stock:
+				</label><input id="stock_articulo" type="text" style="width: 20px;"
+					disabled="disabled">
+				<hr>
+				<div class="form-group">
+					<input type="number" class="form-control text-primary"
+						id="cantidad_add" placeholder="ingrese cantidad comprada "
+						style="font-weight: bold 200;" autofocus="autofocus">
+				</div>
+				<br>
+				<div class="form-group">
+					<input type="number" class="form-control text-primary"
+						id="precio_unitario" placeholder="ingrese precio"
+						style="font-weight: bold 200;">
+				</div>
+
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary"
+					onclick="añadir_carrito()">Agregar</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Modal Registro Venta Exitoso -->
+<div class="modal fade" id="mensaje_compra_exitosa" tabindex="-1"
+	role="dialog" aria-labelledby="exampleModalCenterTitle"
+	aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLongTitle"
+					style="color: #EA2027;">Mensaje Confirmación</h5>
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<h4 style="color: #1B1464;">Su compra fue registrado
+					satisfactoriamente!</h4>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- 		jalar script para la nueva compra -->
+<script src="js/compra_add.js"></script>
+
+<script type="text/javascript">
+$('#boton_buscar').on('keyup', function() {
+	var value = $(this).val();
+	var patt = new RegExp(value, "i");
+	$('#tablon').find('tr').each(function() {
+		if (!($(this).find('td').text().search(patt) >= 0)) {
+			$(this).not('.myHead').hide();
+		}
+		if (($(this).find('td').text().search(patt) >= 0)) {
+			$(this).show();
+		}
+	});
+});
+</script>
+
+
+
+
+
+

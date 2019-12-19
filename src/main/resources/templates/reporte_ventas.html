@@ -1,0 +1,51 @@
+
+<!--       fin de la cabecera  -->
+     <h1>Ventas generales</h1>
+ 
+<!--      inicio del contenido especial de la venta -->
+     <div class="container">
+			<table class="table table-hover text-left " id="tablita">
+				<thead>
+					<tr>
+						<th scope="col">ID</th>
+						<th scope="col">N°</th>
+						<th scope="col">MONTO TOTAL</th>
+						<th scope="col">FECHA </th>
+						<th scope="col">ESTADO</th>
+						<th scope="col">CLIENTE</th>
+						<th scope="col" colspan='2'>VER DETALLE</th>
+					</tr>
+				</thead>
+				<tbody id="tablon">
+				
+				</tbody>
+			</table>
+		</div>
+		
+		<div class="col-xs-6 col-md-12">
+				<br>
+				<input type="button" value="Generar" onclick="generar()"
+						class="btn btn-primary" style="margin-left: 150px; border-radius: 20px;">
+	    </div>
+<!-- 		fin del contenido especial de la venta -->
+ 
+<!--     fin de las etiquetas -->
+
+
+
+
+    <!-- Essential javascripts for application to work-->
+     <script src="js/venta.js"></script>
+    <script src="js/printThis.js"></script>
+    <script>
+    var opciones = { 
+			importCSS : false,
+  			loadCSS : "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+		}
+
+		function generar() { 
+			$('#tablita').printThis(opciones);
+		}
+    </script>
+    
+    

@@ -34,6 +34,16 @@ public class LoginController {
 		        return "login";
 		}	
 		
+		@RequestMapping("/cargar_centro")
+		public String recargar_centro() {
+			return "centro";
+		}
+		
+		@RequestMapping("/cargar_footer")
+		public String recargar_footer() {
+			return "footer";
+		}
+	
 		
 		 @RequestMapping(value="/logout")
 	       public String logout(HttpServletRequest request){

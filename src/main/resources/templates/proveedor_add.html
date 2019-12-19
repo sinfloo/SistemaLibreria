@@ -1,0 +1,64 @@
+      <div class="container" id="container-content" style="color: black;">
+			<header class="error" style="width: 100%;">
+				<h4>Agregar Proveedor</h4>
+			</header>
+	<div class="row">
+	<div class="col-md-6" id="formularioProveedor" >
+	<input type="text" class="form-control"  id="tipo" onblur="validar_campos_vacios()" required placeholder="ingrese tipo de proveedor (empresa o persona)" style="background-color:#1abc9c; border-radius:6px; height: 45px;font-weight: bold; color: #fff;">
+	<hr>
+	<input type="text" class="form-control" id="razonso" onblur="validar_campos_vacios1()" required placeholder="razon social" style="background-color:#1abc9c; border-radius:6px; height: 45px;font-weight: bold;color: #fff; ">
+	<hr>
+	<input type="number" class="form-control" id="ruc"onblur="validar_campos_vacios2()" required="required" placeholder="ingrese ruc" style="background-color:#1abc9c; border-radius:6px;  height: 45px;font-weight: bold; color: #fff;">
+	<hr>
+	<input type="text" class="form-control" id="direc" onblur="validar_campos_vacios3()" required="required" placeholder="dirección" style="background-color:#1abc9c; border-radius:6px;  height: 45px;font-weight: bold; color: #fff;">
+	<hr>
+	<input type="number" class="form-control" id="telefono" onblur="validar_campos_vacios4()" required="required" placeholder="telefono" style="background-color:#1abc9c; border-radius:6px;  height: 45px;font-weight: bold; color: #fff;">
+	<hr>
+	<input type="number" class="form-control" id="est" disabled="disabled" placeholder="estado" style="background-color:#1abc9c; border-radius:6px;  height: 45px;font-weight: bold; color: #fff;">
+	<hr>
+	</div>
+
+	 <div class="col-md-6">
+	<div class="form-group" style="color: #222f3e; font-weight: bold;">
+			
+		</div>
+		<div class="form-group" style="margin-top: 120px; margin-left: 100px;">
+		<input type="button" class="btn btn-success" onclick="guardar_p()" value="Enviar" style="font-weight: bold;">
+		<a class="btn btn-danger" href="lista_proveedor" style="color: #fff; font-weight: bold;" >Cancelar</a>
+		</div>
+		
+	</div> 
+	</div>
+			
+			
+						
+
+		
+		</div>
+<!--     fin de las etiquetas -->
+
+    <!-- Essential javascripts for application to work-->
+  
+    <script src="js/proveedor_add.js"></script>
+    <script>
+//     limitar el numero a 11
+    var input=  document.getElementById('ruc');
+    input.addEventListener('input',function(){
+      if (this.value.length > 11) 
+         this.value = this.value.slice(0,11); 
+    })
+    
+//     limitar el numero a 9
+ var input=  document.getElementById('telefono');
+    input.addEventListener('input',function(){
+      if (this.value.length > 9) 
+         this.value = this.value.slice(0,9); 
+    })
+    
+    
+	</script>
+   
+   
+   
+   
+   

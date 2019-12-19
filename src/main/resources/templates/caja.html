@@ -1,0 +1,46 @@
+
+<!--       fin de la cabecera  -->
+	<!--      inicio del contenido especial del cierre -->
+	<div id="contenedor_caja">
+     <div class="container">
+			<header style="width: 100%;">
+				<a href="#" id="add_closebox" style="color: #9980FA;"><i
+					class="fas fa-plus-circle fa-2x"></i></a>
+			</header>
+			<table class="table table-hover text-left " id="tablita">
+				<thead>
+					<tr>
+						<th scope="col">ID</th>
+						<th scope="col">N°</th>
+						<th scope="col">FECHA</th>
+						<th scope="col">MONTO TOTAL </th>
+						<th scope="col">ESTADO</th>
+						<th scope="col">USUARIO</th>
+						<th scope="col" colspan='2'>VER DETALLE</th>
+					</tr>
+				</thead>
+				<tbody id="tablon">
+				
+				</tbody>
+			</table>
+		</div>
+		</div>
+<!-- 		fin del contenido especial del cierre caja -->
+<!--     fin de las etiquetas -->
+
+    <!-- Essential javascripts for application to work-->
+	<script src="js/cierre_caja.js"></script>
+	
+	 <script type="text/javascript">
+    $("#add_closebox").click(function(){
+    	console.log("estamos dentro de la funcion agregar cierre caja ");
+        $.get("/agregar_cierre", function(htmlexterno){
+   $("#contenedor_caja").html(htmlexterno);
+    	});
+	});
+	</script>
+	
+	
+	
+	
+	

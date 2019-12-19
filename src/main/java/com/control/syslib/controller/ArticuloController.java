@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.control.syslib.entity.Articulos;
 import com.control.syslib.service.ArticuloService;
 import com.google.gson.Gson;
-
 
 @Controller
 public class ArticuloController {
@@ -26,12 +26,18 @@ public class ArticuloController {
 		return "articulo";
 	}
 	
-	@RequestMapping(value="/lista_todos_articulos", method=RequestMethod.POST)
-	public @ResponseBody String vertodo_ar(HttpServletRequest request) {
+	//Metodo Para Lista como Api REST -- Android
+	@RequestMapping(value="/lista_todos_articulos", method=RequestMethod.GET)
+	public @ResponseBody String getArticulos(HttpServletRequest request) {
 	return g.toJson(as.readAll());
 	}
 	
-	@GetMapping("/agregar_articulo")
+	@RequestMapping(value="/lista_todos_articulos", method=RequestMethod.POST)
+	public @ResponseBody String vertodo_ar(HttpServletRequest request) {
+		return g.toJson(as.readAll());
+	}
+	
+	@RequestMapping(value = "/agregar_articulo")
 	public String agregar_art(Model model) {	
 		model.addAttribute("departamento",as.readdepartamentos());
 		return "articulo_add";
@@ -62,5 +68,16 @@ public class ArticuloController {
 				nom, des, est, stock, stock_min, precio_compra, precio_venta,idd));
 		
 		return "1";
+	}
+	
+	@RequestMapping(value="/listar_fila_articulo", method=RequestMethod.POST)
+	public @ResponseBody String ver_un_articulo(HttpServletRequest request) {
+		int ida =Integer.parseInt(request.getParameter("ida"));
+	return g.toJson(as.read_one_article(ida));
+	}
+	
+	@GetMapping("/ver_stock")
+	public String stock_ver(Model model) {		
+		return "stock";
 	}
 }

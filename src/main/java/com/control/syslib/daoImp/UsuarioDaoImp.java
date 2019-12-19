@@ -45,4 +45,24 @@ public class UsuarioDaoImp implements UsuarioDao {
 		return jt.queryForMap(sql, User, Pass);
 	}
 
+	@Override
+	public void edit(Usuario u) {
+		String sql="{CALL UPDATE_USUARIO(?,?,?,?)}";
+		jt.update(sql,u.getIdusuario(),u.getUsuario(), u.getPassword(), u.getEstado());
+		
+	}
+
+	@Override
+	public void delete(int id) {
+		String sql="{CALL DEL_USUARIO(?)}";
+		jt.update(sql,id);
+		
+	}
+
+	@Override
+	public List<Map<String, Object>> read_persona() {
+		// TODO Auto-generated method stub
+		String sql="{CALL RALL_P()}";
+		return jt.queryForList(sql);
+	}
 }

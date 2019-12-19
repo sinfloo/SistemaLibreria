@@ -1,0 +1,133 @@
+
+	<!--       fin de la cabecera  -->
+	<div id="contenedor_pro">
+		<div class="container" id="container-content" style="color: black;">
+			<input type="search" class="form-control " id="boton_buscar"
+				placeholder="Ingrese los caracteres de busqueda" /> <br>
+			<header style="width: 100%;">
+				<h4>Lista de Proveedores</h4>
+				<a href="#" id="new_provider" style="color: #9980FA;"><i
+					class="fas fa-plus-circle fa-2x"></i></a>
+			</header>
+			<table class="table table-hover text-left" style="color: black;"
+				id="tablita">
+				<thead>
+					<tr>
+						<th scope="col">ID</th>
+						<th scope="col">N°</th>
+						<th scope="col">TIPO</th>
+						<th scope="col">RAZÓN SOCIAL</th>
+						<th scope="col">RUC</th>
+						<th scope="col">DIRECCIÓN</th>
+						<th scope="col">TELEFONO</th>
+						<th scope="col">ESTADO</th>
+						<th scope="col">EDITAR</th>
+						<th scope="col">ELIMINAR</th>
+					</tr>
+				</thead>
+				<tbody id="tablon">
+
+				</tbody>
+			</table>
+		</div>
+		<!--  <h5>Datos Actualizados</h5>-->
+	</div>
+	<!-- Modal Modificar-->
+	<div class="modal fade" id="modal_us" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-scrollable" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalScrollableTitle">Editar
+						Proveedor</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body" style="color: #fff;">
+					<div class="row">
+
+						<div class="col-md-6">
+							<input class="form-control" type="text" id="tipo"
+								style="background-color: #D6A2E8; width: 200px; color: white; border: none; border-radius: 6px;">
+							<br> <input class="form-control" type="text" id="razonso"
+								style="background-color: #D6A2E8; width: 200px; color: white; border: none; border-radius: 6px;">
+							<br> <input class="form-control" type="number" id="ruc"
+								style="background-color: #D6A2E8; width: 200px; color: white; border: none; border-radius: 6px;">
+							<br>
+						</div>
+
+						<div class="col-md-6">
+							<input class="form-control" type="text" id="direc"
+								style="background-color: #D6A2E8; width: 200px; color: white; border: none; border-radius: 6px;">
+							<br> <input class="form-control" type="number" id="telefono"
+								style="background-color: #D6A2E8; width: 200px; color: white; border: none; border-radius: 6px;">
+							<br> <input class="form-control" type="number" id="est"
+								style="background-color: #D6A2E8; width: 200px; color: white; border: none; border-radius: 6px;">
+							<br> <input type="text" id="idproveedor" hidden>
+						</div>
+
+					</div>
+
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-dismiss="modal">Cerrar</button>
+					<button type="button" onclick="actualizar_u()" class="btn"
+						style="background-color: #3B3B98; border: none; border-radius: 6px; color: #fff; font-weight: bold;">Actualizar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+<!--     fin de las etiquetas -->
+<div class="modal fade" id="ModalEliminar" tabindex="-1" role="dialog"
+	aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">ELIMINACIÓN
+					EXITOSA</h5>
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">Este proveedor ha sido eliminado
+				satisfactoriamente !</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Essential javascripts for application to work-->
+<script src="js/proveedor.js"></script>
+
+<script type="text/javascript">
+	$("#new_provider").click(function() {
+		console.log("estamos en la funcion :v ");
+		$.get("/validar_prov", function(htmlexterno) {
+			$("#contenedor_pro").html(htmlexterno);
+		});
+	});
+	
+	$('#boton_buscar').on('keyup', function() {
+		var value = $(this).val();
+		var patt = new RegExp(value, "i");
+		$('#tablon').find('tr').each(function() {
+			if (!($(this).find('td').text().search(patt) >= 0)) {
+				$(this).not('.myHead').hide();
+			}
+			if (($(this).find('td').text().search(patt) >= 0)) {
+				$(this).show();
+			}
+		});
+	});
+</script>
+
+
+

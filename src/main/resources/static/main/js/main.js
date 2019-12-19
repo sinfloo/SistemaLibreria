@@ -1,3 +1,12 @@
+$(document).ready(function()
+{
+   $.get("/cargar_centro", function(htmlexterno){
+   $("#contenedorr").html(htmlexterno);
+    	});
+   $.get("/cargar_footer", function(htmlexterno){
+	   $("#idfooter").html(htmlexterno);
+	    	});
+	});
 (function () {
 	"use strict";
 
